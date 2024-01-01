@@ -160,9 +160,10 @@ class _HomeScreenState extends State<HomeScreen>
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: InkWell(
-                            onTap: (){
+                            onTap: () {
                               GetaModel g1 = providerr!.getaList[index];
-                              Navigator.pushNamed(context, 'info',arguments:  g1);
+                              Navigator.pushNamed(context, 'info',
+                                  arguments: g1);
                             },
                             child: Container(
                               decoration: BoxDecoration(
@@ -194,7 +195,8 @@ class _HomeScreenState extends State<HomeScreen>
                                         ),
                                         IconButton(
                                           onPressed: () {
-                                            Navigator.pushNamed(context, 'info');
+                                            Navigator.pushNamed(
+                                                context, 'info');
                                           },
                                           icon: const Icon(
                                             Icons.arrow_forward_ios_outlined,
@@ -210,7 +212,8 @@ class _HomeScreenState extends State<HomeScreen>
                                         ),
                                         IconButton(
                                           onPressed: () {
-                                            Navigator.pushNamed(context, 'info');
+                                            Navigator.pushNamed(
+                                                context, 'info');
                                           },
                                           icon: const Icon(Icons.menu),
                                         ),
@@ -233,11 +236,22 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items:  [
-            BottomNavigationBarItem(icon: Icon(Icons.home,color: black,), label: "Home",),
-            BottomNavigationBarItem(icon: Icon(Icons.save,color: black,), label: "Save"),
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: providerr!.islight?black:white,
+              ),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.save,
+                  color: providerr!.islight?black:white,
+                ),
+                label: "Save"),
           ],
-          unselectedItemColor: black,
+          backgroundColor: providerr!.islight?black:white,
         ),
       ),
     );

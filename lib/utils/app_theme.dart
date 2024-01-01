@@ -1,3 +1,4 @@
+import 'package:bhagvat_geeta_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 ThemeData lightTheme = ThemeData(
@@ -15,7 +16,7 @@ ThemeData darkTheme = ThemeData(
   appBarTheme: const AppBarTheme(
     centerTitle: true,
     backgroundColor: Colors.black12,
-    titleTextStyle: TextStyle(color: Colors.white, fontSize: 25),
+    titleTextStyle: TextStyle(color: Colors.black, fontSize: 25),
   ),
   brightness: Brightness.dark,
   textTheme: const TextTheme(

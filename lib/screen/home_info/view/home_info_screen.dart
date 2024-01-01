@@ -1,6 +1,8 @@
 import 'package:bhagvat_geeta_app/screen/home/model/geta_model.dart';
+import 'package:bhagvat_geeta_app/screen/home/provider/home_provider.dart';
 import 'package:bhagvat_geeta_app/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeInfoScreen extends StatefulWidget {
   const HomeInfoScreen({super.key});
@@ -12,6 +14,8 @@ class HomeInfoScreen extends StatefulWidget {
 class _HomeInfoScreenState extends State<HomeInfoScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  HomeProvider? providerr;
+  HomeProvider? providerw;
 
   @override
   void initState() {
@@ -27,6 +31,8 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
 
   @override
   Widget build(BuildContext context) {
+    providerr = context.read<HomeProvider>();
+    providerw = context.watch<HomeProvider>();
     GetaModel g1 = ModalRoute.of(context)!.settings.arguments as GetaModel;
     return SafeArea(
       child: Scaffold(
@@ -70,8 +76,8 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
                     ),
                     Text(
                       "${g1.name_meaning}",
-                      style: const TextStyle(
-                          fontSize: 24, fontWeight: FontWeight.bold),
+                      style:  TextStyle(
+                          fontSize: 24,color: black),
                     ),
                     const SizedBox(
                       height: 10,
@@ -87,7 +93,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
                     ),
                     Text(
                       "${g1.chapter_summary_hindi}",
-                      style: const TextStyle(fontSize: 18),
+                      style:  TextStyle(fontSize: 18,color: black),
                     ),
                     const Divider(
                       height: 15,
@@ -103,7 +109,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
                     ),
                     Text(
                       "${g1.chapter_summary}",
-                      style: const TextStyle(fontSize: 20),
+                      style:  TextStyle(fontSize: 20,color: black),
                     ),
                   ],
                 ),
@@ -116,7 +122,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.menu,
-                color: black,
+                color: providerr!.islight?black:white,
                 size: 25,
               ),
               label: "Home",
@@ -124,7 +130,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.share_rounded,
-                color: black,
+                color: providerr!.islight?black:white,
                 size: 25,
               ),
               label: "Share",
@@ -132,7 +138,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.edit,
-                color: black,
+                color: providerr!.islight?black:white,
                 size: 25,
               ),
               label: "Edit",
@@ -140,7 +146,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.bookmark,
-                color: black,
+                color: providerr!.islight?black:white,
                 size: 25,
               ),
               label: "BookMark",
@@ -148,7 +154,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.save,
-                color: black,
+                color: providerr!.islight?black:white,
                 size: 25,
               ),
               label: "Save",

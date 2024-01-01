@@ -7,7 +7,8 @@ class SpleshScreen extends StatefulWidget {
   State<SpleshScreen> createState() => _SpleshScreenState();
 }
 
-class _SpleshScreenState extends State<SpleshScreen> with SingleTickerProviderStateMixin {
+class _SpleshScreenState extends State<SpleshScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -24,9 +25,18 @@ class _SpleshScreenState extends State<SpleshScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 10), () {
       Navigator.pushReplacementNamed(context, 'home');
     });
-    return Image.asset("assets/image/gita.jpeg",height: 40,width: 40,alignment: Alignment.center,);
+    return SafeArea(
+      child: Scaffold(
+       body: Center(
+         child: CircleAvatar(
+           maxRadius: 80,
+           child: Image.asset("assets/image/image3.jpeg",fit: BoxFit.cover,width: 100),
+         ),
+       ),
+      ),
+    );
   }
 }
