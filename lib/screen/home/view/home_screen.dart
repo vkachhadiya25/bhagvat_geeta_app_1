@@ -188,6 +188,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           "${providerw!.getaList[index].name_transliterated}",
                                           style: const TextStyle(
                                               fontWeight: FontWeight.bold,
+                                              overflow: TextOverflow.ellipsis,
                                               fontSize: 20),
                                         ),
                                         const SizedBox(
@@ -218,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           icon: const Icon(Icons.menu),
                                         ),
                                         Text(
-                                            "${providerw!.getaList[index].verses_count} verses")
+                                            "${providerw!.getaList[index].verses_count} verses"),
                                       ],
                                     ),
                                   ],

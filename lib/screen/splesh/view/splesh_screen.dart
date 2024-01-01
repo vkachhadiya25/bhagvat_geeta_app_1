@@ -1,3 +1,4 @@
+import 'package:bhagvat_geeta_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class SpleshScreen extends StatefulWidget {
@@ -25,18 +26,19 @@ class _SpleshScreenState extends State<SpleshScreen>
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, 'home');
     });
-    return SafeArea(
+    return  SafeArea(
       child: Scaffold(
-       body: Center(
+       body: const Center(
          child: CircleAvatar(
            maxRadius: 80,
-           child: Image.asset("assets/image/image.jpeg",fit: BoxFit.cover,width: 100),
+           backgroundImage: AssetImage("assets/image/gita.jpeg",),
          ),
        ),
-      ),
+        backgroundColor: black,
+     ),
     );
   }
 }
