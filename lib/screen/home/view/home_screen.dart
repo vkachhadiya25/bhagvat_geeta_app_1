@@ -251,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 label: "Save"),
           ],
-          backgroundColor: providerr!.islight?black:white,
+          backgroundColor: providerr!.islight?white:black,
         ),
       ),
     );
