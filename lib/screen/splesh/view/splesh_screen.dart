@@ -33,7 +33,7 @@ class _SpleshScreenState extends State<SpleshScreen>
        body: Center(
          child: CircleAvatar(
            maxRadius: 80,
-           child: Image.asset("assets/image/image3.jpeg",fit: BoxFit.cover,width: 100),
+           child: Image.asset("assets/image/image.jpeg",fit: BoxFit.cover,width: 100),
          ),
        ),
       ),
