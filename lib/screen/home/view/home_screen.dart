@@ -81,125 +81,120 @@ class _HomeScreenState extends State<HomeScreen>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              Image.asset(
+                "assets/image/image1.jpeg",
+                fit: BoxFit.cover,
                 height: MediaQuery.sizeOf(context).height * 0.25,
                 width: MediaQuery.sizeOf(context).width,
-                child:
-                    Image.asset("assets/image/image1.jpeg", fit: BoxFit.cover),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Chapters",
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.menu_book,
-                            color: orange,
-                            size: 27,
-                          ))
-                    ],
+                  const Text(
+                    "Chapters",
+                    style: TextStyle(
+                        fontSize: 25, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
-                    height: 370,
-                    child: ListView.builder(
-                      itemExtent: 130,
-                      itemCount: providerw!.getaList.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            onTap: () {
-                              GetaModel g1 = providerr!.getaList[index];
-                              Navigator.pushNamed(context, 'info',
-                                  arguments: g1);
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  border: Border.fromBorderSide(
-                                      BorderSide(color: grey))),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.menu_book,
+                        color: orange,
+                        size: 27,
+                      ))
+                ],
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemExtent: 130,
+                  itemCount: providerw!.getaList.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          GetaModel g1 = providerr!.getaList[index];
+                          Navigator.pushNamed(context, 'info',
+                              arguments: g1);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.fromBorderSide(
+                                  BorderSide(color: grey))),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "${providerw!.getaList[index].id}",
-                                          style: TextStyle(
-                                              color: orange, fontSize: 22),
-                                        ),
-                                        SizedBox(
-                                          width: 200,
-                                          child: providerw!.language ==
-                                                  "English"
-                                              ? Text(
-                                                  "${providerw!.getaList[index].name_transliterated}",
-                                                  style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      fontSize: 20),
-                                                )
-                                              : Text(
-                                                  "${providerw!.getaList[index].name}",
-                                                  style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      fontSize: 20),
-                                                ),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        IconButton(
-                                          onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, 'info');
-                                          },
-                                          icon: const Icon(
-                                            Icons.arrow_forward_ios_outlined,
-                                            size: 18,
-                                          ),
-                                        ),
-                                      ],
+                                    Text(
+                                      "${providerw!.getaList[index].id}",
+                                      style: TextStyle(
+                                          color: orange, fontSize: 22),
                                     ),
-                                    Row(
-                                      children: [
-                                        const SizedBox(
-                                          width: 40,
-                                        ),
-                                        const Icon(Icons.menu),
-                                        Text(
-                                            "${providerw!.getaList[index].verses_count} verses"),
-                                      ],
+                                    SizedBox(
+                                      width: 200,
+                                      child: providerw!.language ==
+                                              "English"
+                                          ? Text(
+                                              "${providerw!.getaList[index].name_transliterated}",
+                                              style: const TextStyle(
+                                                  fontWeight:
+                                                      FontWeight.bold,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  fontSize: 20),
+                                            )
+                                          : Text(
+                                              "${providerw!.getaList[index].name}",
+                                              style: const TextStyle(
+                                                  fontWeight:
+                                                      FontWeight.bold,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  fontSize: 20),
+                                            ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, 'info');
+                                      },
+                                      icon: const Icon(
+                                        Icons.arrow_forward_ios_outlined,
+                                        size: 18,
+                                      ),
                                     ),
                                   ],
                                 ),
-                              ),
+                                Row(
+                                  children: [
+                                    const SizedBox(
+                                      width: 40,
+                                    ),
+                                    const Icon(Icons.menu),
+                                    Text(
+                                        "${providerw!.getaList[index].verses_count} verses"),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
               )
             ],
           ),
