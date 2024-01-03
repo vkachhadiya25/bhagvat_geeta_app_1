@@ -37,84 +37,75 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            " CHAPTER ${g1.id}",
+            style: TextStyle(fontSize: 22, color: orange),
+          ),
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
           ],
         ),
         body: SingleChildScrollView(
-          child: Stack(
-            children: [
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height * 2,
-                width: MediaQuery.sizeOf(context).width,
-                child: Image.asset(
-                  "assets/image/imag2.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Text(
-                        " CHAPTER ${g1.id}",
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                providerw!.language == "English"
+                    ? Text(
+                        "${g1.name_transliterated}",
+                        style: TextStyle(fontSize: 22, color: orange),
+                      )
+                    : Text(
+                        "${g1.name}",
                         style: TextStyle(fontSize: 22, color: orange),
                       ),
-                    ),
-                    Text(
-                      "${g1.name}",
-                      style: TextStyle(fontSize: 22, color: orange),
-                    ),
-                    Text(
-                      " ${g1.name_transliterated}",
-                      style: TextStyle(fontSize: 22, color: orange),
-                    ),
-                    const Divider(
-                      height: 15,
-                    ),
-                    Text(
-                      "${g1.name_meaning}",
-                      style:  TextStyle(
-                          fontSize: 24,color: black),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Icon(
-                          Icons.menu_book,
-                          color: orange,
-                        )),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "${g1.chapter_summary_hindi}",
-                      style:  TextStyle(fontSize: 18,color: black),
-                    ),
-                    const Divider(
-                      height: 15,
-                    ),
-                    Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Icon(
-                          Icons.menu_book,
-                          color: orange,
-                        )),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "${g1.chapter_summary}",
-                      style:  TextStyle(fontSize: 20,color: black),
-                    ),
-                  ],
+                const SizedBox(height: 5,),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.network("${g1.image}",fit: BoxFit.fill,),),
+                Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Icon(
+                      Icons.menu_book,
+                      color: orange,
+                    )),
+                const SizedBox(
+                  height: 5,
                 ),
-              ),
-            ],
+                providerw!.language == "English"
+                    ? Text(
+                        "${g1.chapter_summary}",
+                        style: TextStyle(fontSize: 18, color: black),
+                      )
+                    : Text(
+                        "${g1.chapter_summary_hindi}",
+                        style: TextStyle(fontSize: 18, color: black),
+                      ),
+                const Divider(
+                  height: 15,
+                ),
+                Text(
+                  "Shlok",
+                  style: TextStyle(fontSize: 22, color: orange),
+                ),
+                Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Icon(
+                      Icons.menu_book,
+                      color: orange,
+                    )),
+                providerw!.language == "English"
+                    ? Text(
+                        "${g1.eShlok}",
+                        style: TextStyle(fontSize: 18, color: black),
+                      )
+                    : Text(
+                        "${g1.shlok}",
+                        style: TextStyle(fontSize: 18, color: black),
+                      ),
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -122,7 +113,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.menu,
-                color: providerr!.islight?black:white,
+                color: providerr!.islight ? black : white,
                 size: 25,
               ),
               label: "Home",
@@ -130,7 +121,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.share_rounded,
-                color: providerr!.islight?black:white,
+                color: providerr!.islight ? black : white,
                 size: 25,
               ),
               label: "Share",
@@ -138,7 +129,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.edit,
-                color: providerr!.islight?black:white,
+                color: providerr!.islight ? black : white,
                 size: 25,
               ),
               label: "Edit",
@@ -146,7 +137,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.bookmark,
-                color: providerr!.islight?black:white,
+                color: providerr!.islight ? black : white,
                 size: 25,
               ),
               label: "BookMark",
@@ -154,7 +145,7 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.save,
-                color: providerr!.islight?black:white,
+                color: providerr!.islight ? black : white,
                 size: 25,
               ),
               label: "Save",

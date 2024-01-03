@@ -6,33 +6,30 @@ void alertDialog (BuildContext context) {
   showDialog(
       context: context,
       builder: (context) {
-        return Consumer<HomeProvider>(
-            builder: (context, HomeProvider, browser) {
-              return AlertDialog(
-                title: const Text("Search Engine"),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    RadioListTile(
-                      value: "Google",
-                      groupValue: HomeProvider.language,
-                      title: const Text("English"),
-                      onChanged: (value) {
-                        HomeProvider.setLanguage(value.toString());
+        return AlertDialog(
+          title: const Text("Languages"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RadioListTile(
+                value: "English",
+                groupValue: context.read<HomeProvider>().language,
+                title: const Text("English"),
+                onChanged: (value) {
+                  context.read<HomeProvider>().setLanguage(value.toString());
 
-                      },
-                    ),
-                    RadioListTile(
-                      value: "Bing",
-                      groupValue: HomeProvider.language,
-                      onChanged: (value) {
-                        HomeProvider.setLanguage(value.toString());
-                      },
-                      title: const Text("Hindi"),
-                    ),
-                  ],
-                ),
-              );
-            });
+                },
+              ),
+              RadioListTile(
+                value: "Hindi",
+                groupValue: context.read<HomeProvider>().language,
+                onChanged: (value) {
+                  context.read<HomeProvider>().setLanguage(value.toString());
+                },
+                title: const Text("Hindi"),
+              ),
+            ],
+          ),
+        );
       });
 }

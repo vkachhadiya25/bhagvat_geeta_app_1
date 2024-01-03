@@ -16,7 +16,7 @@ class HomeProvider with ChangeNotifier
    }
    int index = 0;
    String? language = "English";
-   String? get browserSet => language;
+
 
    void setLanguage(String value) {
      language = value;

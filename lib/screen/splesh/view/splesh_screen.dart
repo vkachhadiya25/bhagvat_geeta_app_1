@@ -29,16 +29,19 @@ class _SpleshScreenState extends State<SpleshScreen>
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, 'home');
     });
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
-       body: const Center(
-         child: CircleAvatar(
-           maxRadius: 80,
-           backgroundImage: AssetImage("assets/image/gita.jpeg",),
-         ),
-       ),
-        backgroundColor: black,
-     ),
+        body: Column(
+          children: [
+            Image.asset(
+              "assets/image/image.jpeg",
+              height: MediaQuery.sizeOf(context).height*0.9,
+              width: MediaQuery.sizeOf(context).width,
+            ),
+          ],
+        ),
+        backgroundColor: Colors.black,
+      ),
     );
   }
 }

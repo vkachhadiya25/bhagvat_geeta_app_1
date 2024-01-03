@@ -90,50 +90,8 @@ class _HomeScreenState extends State<HomeScreen>
               const SizedBox(
                 height: 5,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Last read",
-                    style: TextStyle(
-                        fontSize: 24,
-                        wordSpacing: 4,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "VERSE 1.5",
-                    style: TextStyle(fontSize: 20, color: grey),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 5,
-              ),
               Column(
                 children: [
-                  Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        "Corrected :",
-                        style: TextStyle(
-                            color: grey,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      )),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "This Book explains Bhagavad Gita (Sacred Text) given by Supreme God as Summary in English. The Human (Arjuna) had lot of Questions to Supreme ",
-                    style: TextStyle(fontSize: 17, color: Colors.grey.shade500),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      "CONTINUE READING ...",
-                      style: TextStyle(color: orange, fontSize: 16),
-                    ),
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -152,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                   SizedBox(
-                    height: 150,
+                    height: 370,
                     child: ListView.builder(
                       itemExtent: 130,
                       itemCount: providerw!.getaList.length,
@@ -184,12 +142,28 @@ class _HomeScreenState extends State<HomeScreen>
                                           style: TextStyle(
                                               color: orange, fontSize: 22),
                                         ),
-                                        Text(
-                                          "${providerw!.getaList[index].name_transliterated}",
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              overflow: TextOverflow.ellipsis,
-                                              fontSize: 20),
+                                        SizedBox(
+                                          width: 200,
+                                          child: providerw!.language ==
+                                                  "English"
+                                              ? Text(
+                                                  "${providerw!.getaList[index].name_transliterated}",
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      fontSize: 20),
+                                                )
+                                              : Text(
+                                                  "${providerw!.getaList[index].name}",
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      fontSize: 20),
+                                                ),
                                         ),
                                         const SizedBox(
                                           height: 10,
@@ -211,13 +185,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         const SizedBox(
                                           width: 40,
                                         ),
-                                        IconButton(
-                                          onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, 'info');
-                                          },
-                                          icon: const Icon(Icons.menu),
-                                        ),
+                                        const Icon(Icons.menu),
                                         Text(
                                             "${providerw!.getaList[index].verses_count} verses"),
                                       ],
@@ -241,18 +209,18 @@ class _HomeScreenState extends State<HomeScreen>
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: providerr!.islight?black:white,
+                color: providerr!.islight ? black : white,
               ),
               label: "Home",
             ),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.save,
-                  color: providerr!.islight?black:white,
+                  color: providerr!.islight ? black : white,
                 ),
                 label: "Save"),
           ],
-          backgroundColor: providerr!.islight?white:black,
+          backgroundColor: providerr!.islight ? white : black,
         ),
       ),
     );
