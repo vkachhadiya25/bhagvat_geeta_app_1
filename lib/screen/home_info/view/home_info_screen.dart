@@ -76,11 +76,11 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
                 providerw!.language == "English"
                     ? Text(
                         "${g1.chapter_summary}",
-                        style: TextStyle(fontSize: 18, color: black),
+                        style: TextStyle(fontSize: 18, color: providerw!.islight? Colors.black : Colors.white),
                       )
                     : Text(
                         "${g1.chapter_summary_hindi}",
-                        style: TextStyle(fontSize: 18, color: black),
+                        style: TextStyle(fontSize: 18, color: providerw!.islight? Colors.black : Colors.white),
                       ),
                 const Divider(
                   height: 15,
@@ -98,11 +98,11 @@ class _HomeInfoScreenState extends State<HomeInfoScreen>
                 providerw!.language == "English"
                     ? Text(
                         "${g1.eShlok}",
-                        style: TextStyle(fontSize: 18, color: black),
+                        style: TextStyle(fontSize: 18, color: providerw!.islight? Colors.black : Colors.white),
                       )
                     : Text(
                         "${g1.shlok}",
-                        style: TextStyle(fontSize: 18, color: black),
+                        style: TextStyle(fontSize: 18, color: providerw!.islight? Colors.black : Colors.white),
                       ),
               ],
             ),
